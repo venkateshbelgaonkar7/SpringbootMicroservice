@@ -1,16 +1,29 @@
 package com.programmingtechie.productservice.controller;
 
+import com.programmingtechie.productservice.Service.ProductService;
 import com.programmingtechie.productservice.dto.ProductRequest;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.programmingtechie.productservice.dto.ProductRespose;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/product")
+@RequiredArgsConstructor
 public class ProductController {
-    @PostMapping
-    public void createProduct(@RequestBody ProductRequest productRequest) {
 
+    private final ProductService productService;
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createProduct(@RequestBody ProductRequest productRequest) {
+        productService.createProduct(productRequest);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<ProductRespose> getAllProducts() {
+        productService.getAllProducts();
     }
 }
