@@ -20,6 +20,7 @@ public class ProductService {
         Product product = Product.builder()
                 .name(productRequest.getName())
                 .description(productRequest.getDescription())
+                .price(productRequest.getPrice())
                 .build();
 
         productRepository.save(product);
@@ -27,9 +28,8 @@ public class ProductService {
     }
 
     public List<ProductRespose> getAllProducts() {
-
         List<Product> products = productRepository.findAll();
-        products.stream().map(product -> mapToProductRespose());
+        return products.stream().map(this::mapToProductRespose).toList();
     }
 
     private ProductRespose mapToProductRespose(Product product) {
