@@ -1,4 +1,4 @@
-package com.programmingtechie.productservice.Service;
+package com.programmingtechie.productservice.service;
 
 import com.programmingtechie.productservice.dto.ProductRequest;
 import com.programmingtechie.productservice.dto.ProductRespose;

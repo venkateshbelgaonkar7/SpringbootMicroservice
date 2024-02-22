@@ -1,10 +1,10 @@
 package com.programmingtechie.productservice.controller;
 
-import com.programmingtechie.productservice.Service.ProductService;
+import com.programmingtechie.productservice.service.ProductService;
 import com.programmingtechie.productservice.dto.ProductRequest;
 import com.programmingtechie.productservice.dto.ProductRespose;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product")
 @RequiredArgsConstructor
-public class
-    ProductController {
+public class ProductController {
 
     private final ProductService productService;
     @PostMapping
